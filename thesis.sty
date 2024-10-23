@@ -7,16 +7,10 @@
 \usepackage{caption}
 \usepackage{titlesec}
 \usepackage{cite}
-\usepackage{fontspec}
 \usepackage{luatexja} % 日本語対応
 
 % ページ設定
 \usepackage[a4paper, margin=2.5cm]{geometry}
-
-% フォント設定
-%\setmainfont{ヒラギノ明朝 ProN} % メインフォントの設定（お好みのフォントに変更可能）
-%\setsansfont{ヒラギノ丸ゴ ProN}
-%\setmonofont{Menlo}
 
 % 行間を1.5倍
 \renewcommand{\baselinestretch}{1.5}
@@ -29,7 +23,7 @@
         \vspace{1em}
         {\large \textit{\@author}} \\
         \vspace{2em}
-        {\textit{提出日: \@date}}
+        {\textit{提出日: \textnormal{\@date}}}
     \end{center}
 }
 
