@@ -16,22 +16,11 @@
 \renewcommand{\baselinestretch}{1.5}
 \captionsetup{font={small,it}} % 図表のキャプション設定
 
-% タイトル設定
-\renewcommand{\maketitle}{
-    \begin{center}
-        {\LARGE \textit{\@title}} \\
-        \vspace{1em}
-        {\large \textit{\@author}} \\
-        \vspace{2em}
-        {\textit{提出日: \textnormal{\@date}}}
-    \end{center}
-}
-
 % セクションのスタイル
 \titleformat{\section}
-  {\Large\bfseries}{\thesection}{1em}{}
+{\LARGE}{\thesection}{1em}{}
 \titleformat{\subsection}
-  {\large\bfseries}{\thesubsection}{1em}{}
+{\large}{\thesubsection}{1em}{}
 
 % 図の設定
 \graphicspath{{figures/}} % 図の格納フォルダ
