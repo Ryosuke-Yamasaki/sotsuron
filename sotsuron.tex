@@ -46,10 +46,43 @@
 \clearpage
 \section{常微分方程式について}
 \subsection{概要}
-常微分方程式とは，変数が1つとなるような，ある関数とその導関数の関係を表す方程式のことである．また，解析的に解けるものには限りがあるため，実際には数値解法を用いることが多い．常微分方程式の数値解法は初期値問題に分類される．
+常微分方程式とは，変数が1つとなるような，ある関数とその導関数の関係を表す方程式のことである．また，解析的に解けるものには限りがあるため，実際には数値解法を用いることが多い．
+\subsection{数値解法}
+常微分方程式の数値解法は初期値問題に分類され，与えられた導関数における微小区間の面積を原関数における微小区間の変化分として原関数を求められる．代表的な解法としてオイラー法と4次ルンゲクッタ法がある．以下は1階常微分方程式の各解法である．
+与えられた導関数を$\frac{dy}{dx}=f(x,y)$，初期値を$(x,y)=(x_0,y_0)$，微小区間の幅を$h$とする．
 \subsection{オイラー法}
-\subsection{ルンゲクッタ法}
-\subsection{比較}
+オイラー法では，現在の点を用いて次の点を求める．現在の点を$(x_n,y_n)$とすると，$(x_{n+1},y_{n+1})$は以下のようになる．
+\begin{equation}
+  x_{n+1}=x_n+h
+\end{equation}
+\begin{equation}
+  y_{n+1}=y_n+hf(x_n,y_n)
+\end{equation}
+また，局所誤差は$O(h^2)$,大域誤差は$O(h)$である．
+\clearpage
+\subsection{4次ルンゲクッタ法}
+4次ルンゲクッタ法では，次の補正値$k$を用いて次の点を求める．
+\begin{equation}
+  k_1=hf(x_n,y_n)\label{eq:3}
+\end{equation}
+\begin{equation}
+  k_2=hf(x_n+\frac{h}{2},y_n+\frac{k_1}{2})\label{eq:4}
+\end{equation}
+\begin{equation}
+  k_3=hf(x_n+\frac{h}{2},y_n+\frac{k_2}{2})\label{eq:5}
+\end{equation}
+\begin{equation}
+  k_4=hf(x_n+h,y_n+k_3)\label{eq:6}
+\end{equation}
+\eqref{eq:3}では，現在の点を用いており，\eqref{eq:4}と\eqref{eq:5}は現在の点と次の点の中点を用いている．最後に，\eqref{eq:6}では，次の点を用いている．
+現在の点を$(x_n,y_n)$とすると，$(x_{n+1},y_{n+1})$は以下のようになる．
+\begin{equation}
+  x_{n+1}=x_n+h
+\end{equation}
+\begin{equation}
+  y_{n+1}=y_n+\frac{1}{6}(k_1+2k_2+2k_3+k_4)
+\end{equation}
+また，局所誤差は$O(h^5)$,大域誤差は$O(h^4)$である．
 \clearpage
 \section{開発したシミュレータ教材について}
 \subsection{目的}
